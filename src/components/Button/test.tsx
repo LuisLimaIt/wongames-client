@@ -12,7 +12,6 @@ describe('<Button />', () => {
       padding: '0.8rem 3.2rem',
       'font-size': '1.4rem'
     })
-    // expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render the small size by default', () => {
@@ -23,7 +22,6 @@ describe('<Button />', () => {
       padding: '0.8rem',
       'font-size': '1.2rem'
     })
-    // expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render the large size by default', () => {
@@ -34,6 +32,13 @@ describe('<Button />', () => {
       padding: '0.8rem 4.8rem',
       'font-size': '1.6rem'
     })
-    // expect(container.firstChild).toMatchSnapshot()
+  })
+
+  it('should render a fullWidth version', () => {
+    renderWithTheme(<Button fullWidth>Buy now</Button>)
+
+    expect(screen.getByRole('button', { name: /Buy now/i })).toHaveStyle({
+      width: '100%'
+    })
   })
 })
